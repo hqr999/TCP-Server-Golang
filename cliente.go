@@ -54,7 +54,6 @@ func (c *client) lerInput() {
 			c.comandos <- comando{
 				id:      CMD_SAIR,
 				cliente: c,
-				args:    args,
 			}
 		default:
 			c.err(fmt.Errorf("erro desconhecido: %s", cmd))
@@ -63,9 +62,9 @@ func (c *client) lerInput() {
 }
 
 func (c *client) err(err error) {
-	c.conn.Write([]byte("ERRO: " + err.Error() + "/n"))
+	c.conn.Write([]byte("ERRO: " + err.Error() + "\n"))
 }
 
 func (c *client) msg(msg string) {
-	c.conn.Write([]byte("> " + msg + "/n"))
+	c.conn.Write([]byte("> " + msg + "\n"))
 }

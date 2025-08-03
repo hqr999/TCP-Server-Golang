@@ -17,13 +17,12 @@ func main() {
 	log.Println("Servidor inicializado na porta :8080")
 
 	for {
-		conn, err := listener.Accept()
+		con, err := listener.Accept()
 		if err != nil {
 			log.Printf("Incapaz de aceitar conexões: %s",err.Error())
 			continue
 		}
-
-		go s.novoCliente()
+		go s.novoCliente(con)
 	}	
 
 }
