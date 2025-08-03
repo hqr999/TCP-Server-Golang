@@ -7,7 +7,7 @@ import (
 
 func main() {
 		s := novoServidor()
-
+		go s.rodar()
 		listener, err := net.Listen("tcp",":8080")
 		if err != nil {
 				log.Fatal("Incapax=z de iniciar o servidor",err.Error())

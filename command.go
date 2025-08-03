@@ -12,6 +12,6 @@ const (
 
 type comando struct {
 		id comandoID
-		cliente *cliente 
+		cliente *client 
 		args []string
 }
